@@ -1,1 +1,647 @@
-/* Enter your custom styles here */
+/* ── Root / Body ─────────────────────────────────────────── */
+html.jhahHtml,
+html.jhahHtml body,
+.jhahBody,
+.jhahBody .sapUiBody {
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  background: #f2f4f7;
+}
+
+.jhahRoot,
+.jhahRoot .sapUiComponentContainer,
+.jhahRoot .sapUiComponentContainer > div,
+#container,
+#container-uiarea,
+#container-uiarea > .sapUiView {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#container-uiarea > .sapUiView {
+  display: block;
+}
+
+/* ── App Shell ───────────────────────────────────────────── */
+.jhahAppShell {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.jhahMainColumn {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  background: #f2f4f7;
+}
+
+/* ── Sidebar ─────────────────────────────────────────────── */
+.jhahSideNavWrap {
+  width: 17.5rem;
+  flex-shrink: 0;
+  height: 100%;
+  min-height: 100%;
+  background: #183A53;
+  box-sizing: border-box;
+}
+
+.jhahSideNav {
+  background: transparent;
+  flex: 1;
+}
+
+.jhahBrandArea {
+  padding: 1rem 0.75rem 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.jhahBrand {
+  width: 100%;
+  max-width: 14rem;
+  margin: 0 auto;
+}
+
+.jhahBrandTitle {
+  color: #ffffff;
+  margin: 0 !important;
+}
+
+.jhahBrandSub {
+  color: #d7e8f6;
+  font-size: 0.75rem;
+}
+
+.jhahBrandLogo {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex-shrink: 0;
+}
+
+.jhahBrandLogo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.jhahSideNav.sapTntSideNavigation,
+.jhahSideNavWrap .sapTntSideNavigation {
+  background: transparent;
+  border-right: none !important;
+  box-shadow: none !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 20rem;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.jhahSideNav .sapTntNavLI,
+.jhahSideNav .sapTntNavigationList {
+  width: 100%;
+}
+
+/* Unselected nav items — transparent background, white text */
+.jhahSideNav .sapTntNLI,
+.jhahSideNav .sapTntNLI:hover {
+  background-color: transparent !important;
+  border-radius: 0.65rem !important;
+  margin: 0.35rem auto !important;
+  width: calc(100% - 1.5rem) !important;
+  max-width: 14rem !important;
+  box-sizing: border-box !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.jhahSideNav .sapTntNLI .sapTntNLIText,
+.jhahSideNav .sapTntNLI .sapMText {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.jhahSideNav .sapTntNLI .sapTntNLIIcon,
+.jhahSideNav .sapTntNLI .sapUiIcon {
+  color: #ffffff !important;
+}
+
+/* Selected nav item — white background, dark navy text */
+.jhahSideNav .sapTntNLI.sapTntNLISelected {
+  background-color: #ffffff !important;
+  border-radius: 0.65rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.jhahSideNav .sapTntNLI.sapTntNLISelected .sapTntNLIText,
+.jhahSideNav .sapTntNLI.sapTntNLISelected .sapMText {
+  color: #153a54 !important;
+  font-weight: 600 !important;
+}
+
+.jhahSideNav .sapTntNLI.sapTntNLISelected .sapTntNLIIcon,
+.jhahSideNav .sapTntNLI.sapTntNLISelected .sapUiIcon {
+  color: #153a54 !important;
+}
+
+/* Remove the Horizon theme focus/selected border indicator */
+.jhahSideNav .sapTntNLI.sapTntNLISelected::before,
+.jhahSideNav .sapTntNLI.sapTntNLISelected:focus::before {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+}
+
+/* Sidebar footer cards */
+.jhahSideNavFooter {
+  gap: 0.65rem;
+  padding: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.jhahSidebarPatternBanner {
+  width: calc(100% + 1.5rem);
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+  overflow: hidden;
+  height: 14rem;
+}
+
+.jhahSidebarPatternBanner .sapMImg,
+.jhahSidebarPatternBanner img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  display: block;
+}
+
+.jhahSidebarMetaCard,
+.jhahSidebarProfileCard {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 0.65rem;
+  padding: 0.65rem;
+  width: calc(100% - 1.5rem);
+  max-width: 14rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.jhahSidebarLabel {
+  color: #cfe2f0;
+}
+
+.jhahSidebarValue,
+.jhahSidebarName,
+.jhahSidebarRole {
+  color: #ffffff;
+}
+
+.jhahSidebarName {
+  font-weight: 600;
+}
+
+/* ── Header Toolbar ──────────────────────────────────────── */
+.jhahToolHeader {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.jhahPageTitle {
+  color: #2f3b4c;
+  font-weight: 600;
+}
+
+.jhahHeaderIcon {
+  color: #153a54;
+}
+
+/* ── Scroll / Content Area ───────────────────────────────── */
+.jhahMainScroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
+  background: #f2f4f7;
+  box-sizing: border-box;
+}
+
+.jhahMainScroll.sapMScrollCont {
+  height: 100% !important;
+}
+
+.jhahMainScroll > .sapMScrollContScroll {
+  width: 100% !important;
+  min-height: 100%;
+  box-sizing: border-box;
+}
+
+.jhahDashboardContent {
+  padding: 1rem 1.25rem 1.5rem;
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Dashboard Grid ──────────────────────────────────────── */
+.jhahDashboardGrid {
+  width: 100%;
+  max-width: 100%;
+  gap: 1.25rem;
+  box-sizing: border-box;
+}
+
+.jhahDashboardColMain {
+  flex: 1 1 62%;
+  min-width: min(100%, 36rem);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.jhahDashboardColSide {
+  flex: 1 1 34%;
+  min-width: min(100%, 20rem);
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Card Row Layouts ────────────────────────────────────── */
+.jhahTwoColRow,
+.jhahKpiRow {
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.jhahHalfCardWrap {
+  min-width: 0;
+  height: 100%;
+}
+
+.jhahHalfCardWrap > .sapFCard {
+  height: 100%;
+}
+
+.jhahKpiRow > .sapFCard {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* Half-width card (Security violations side-by-side) */
+.jhahHalfCard {
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: min(100%, 12rem);
+}
+
+.jhahThirdCard {
+  flex: 1 1 0;
+  min-width: min(100%, 10rem);
+  width: 100% !important;
+}
+
+/* ── Card Internals ──────────────────────────────────────── */
+.jhahPairCardInner {
+  padding: 1rem;
+  box-sizing: border-box;
+  min-height: 9.5rem;
+  height: 100%;
+}
+
+.jhahTwoColRow .jhahPairCardInner {
+  min-height: 10.5rem;
+}
+
+.jhahDataCard,
+.jhahKpiCard,
+.jhahAlertCard {
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 1rem;
+}
+
+.jhahKpiCard.sapFCard,
+.jhahKpiCard .sapFCardContent {
+  overflow: visible !important;
+}
+
+/* Only data cards (not KPI cards) need height:100% on their content */
+.jhahDataCard .sapFCardContent {
+  height: 100%;
+}
+
+.jhahAlertCard .sapFCardContent {
+  height: auto;
+  overflow: visible;
+}
+
+.jhahAlertCard.sapFCard {
+  height: auto !important;
+  min-height: 0;
+}
+
+.jhahKpiCardInner {
+  padding: 0.875rem 1.25rem 1rem;
+  box-sizing: border-box;
+  /* content needs ~70px (label 16 + gap 6 + value 48) + 28px padding = 98px min */
+  min-height: 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow: visible;
+}
+
+.jhahAlertCardInner {
+  padding: 1rem 1.25rem;
+  box-sizing: border-box;
+}
+
+.jhahAlertCardInner {
+  min-height: 6.75rem;
+  width: 100%;
+}
+
+.jhahAlertCardText {
+  flex: 1;
+  min-width: 0;
+  padding-right: 0.75rem;
+}
+
+.jhahAlertCardText.sapMVBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.jhahAlertCardText .jhahKpiTitle {
+  margin-bottom: 0.15rem;
+}
+
+.jhahAlertCardText .jhahMutedText {
+  line-height: 1.4;
+  margin-top: 0.25rem;
+  white-space: normal;
+}
+
+/* ── KPI Typography ──────────────────────────────────────── */
+.jhahKpiTitle,
+.jhahKpiTitle.sapMLabel {
+  color: #7e8793 !important;
+  font-size: 0.8125rem !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.35rem;
+}
+
+.jhahKpiValue .sapMObjectNumberText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2f41;
+}
+
+/* Accent bottom-borders */
+.jhahAccentBlue {
+  border-bottom: 3px solid #1d7db5;
+}
+
+.jhahAccentGreen {
+  border-bottom: 3px solid #31a56e;
+}
+
+.jhahAccentOrange {
+  border-bottom: 3px solid #d28c22;
+}
+
+.jhahHighlightValue {
+  color: #1a4f7e;
+}
+
+.jhahMutedText {
+  color: #6f7984;
+}
+
+/* ── Alert Cards ─────────────────────────────────────────── */
+.jhahAlertCardError {
+  background: #fdecec;
+}
+
+.jhahAlertCardInfo {
+  background: #e8f4fc;
+}
+
+.jhahAlertNumber {
+  margin: 0.1rem 0 0.2rem;
+  display: block;
+}
+
+.jhahAlertNumber .sapMObjectNumber {
+  height: auto;
+  line-height: 1.15;
+}
+
+.jhahAlertNumber .sapMObjectNumberText {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #c74b4b;
+  line-height: 1.15;
+  height: auto;
+}
+
+.jhahAlertNumberInfo .sapMObjectNumberText {
+  color: #1d7db5;
+}
+
+.jhahAlertCardInner .jhahAlertIcon {
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  font-size: 2.25rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+}
+
+.jhahIconError {
+  color: #c74b4b;
+}
+
+.jhahIconInfo {
+  color: #1d7db5;
+}
+
+/* ── Sections ────────────────────────────────────────────── */
+.jhahSection {
+  margin-bottom: 1.25rem;
+}
+
+.jhahSectionTitle {
+  color: #2f3b4c;
+  margin-bottom: 0.65rem !important;
+}
+
+.jhahSectionHeader {
+  margin-bottom: 0.65rem;
+}
+
+.jhahViolationsSection {
+  height: 100%;
+}
+
+.jhahViolationsStack {
+  gap: 1rem;
+  width: 100%;
+}
+
+.jhahStackedCard {
+  width: 100% !important;
+}
+
+.jhahViolationsPointsCard {
+  flex: 1 1 auto;
+}
+
+/* ── Appointments ────────────────────────────────────────── */
+.jhahDateBadge {
+  background: linear-gradient(135deg, #1a8a8a, #2cb5b5);
+  color: #ffffff;
+  border-radius: 0.5rem;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  padding: 0.35rem;
+}
+
+.jhahDateBadge .sapMTitle {
+  color: #ffffff;
+  margin: 0;
+}
+
+.jhahAppointmentItem {
+  padding: 0.75rem 1rem;
+}
+
+.jhahAppointmentDetails {
+  flex: 1;
+}
+
+.jhahAppointmentMeta {
+  align-items: flex-end;
+  min-width: 6rem;
+}
+
+.jhahAlignEnd {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* ── Chart ───────────────────────────────────────────────── */
+.jhahChartWrap {
+  position: relative;
+  min-height: 280px;
+}
+
+.jhahChartCenterLabel {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ── Tables ──────────────────────────────────────────────── */
+.jhahInnerTable .sapMListTblHeader {
+  background: #f7f9fb;
+}
+
+.jhahInnerTable {
+  width: 100%;
+}
+
+/* ── Progress (ID expiry) ────────────────────────────────── */
+.jhahExpiryProgress {
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* ── Pill Badge Status ───────────────────────────────────── */
+.jhahBadgeStatus .sapMObjStatusText {
+  display: inline-block;
+  padding: 0.2rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+
+.jhahBadgeStatus .sapMObjStatusIcon {
+  display: none;
+}
+
+.jhahBadgeStatus.sapMObjStatusSuccess .sapMObjStatusText {
+  background-color: #31a56e;
+  text-shadow: none;
+}
+
+.jhahBadgeStatus.sapMObjStatusWarning .sapMObjStatusText {
+  background-color: #d28c22;
+  text-shadow: none;
+}
+
+.jhahBadgeStatus.sapMObjStatusError .sapMObjStatusText {
+  background-color: #c74b4b;
+  text-shadow: none;
+}
+
+.jhahBadgeStatus.sapMObjStatusInformation .sapMObjStatusText {
+  background-color: #1d7db5;
+  text-shadow: none;
+}
+
+/* ── Teal progress bars (violations by category) ─────────── */
+.jhahTealProgress .sapMPIBar-Full,
+.jhahTealProgress .sapMPIBarGood,
+.jhahTealProgress .sapMPIBarNeutral,
+.jhahTealProgress .sapMPIBarCritical,
+.jhahTealProgress .sapMPIBarNegative,
+.jhahTealProgress .sapMPIBarNoValue {
+  background-color: #1d7db5 !important;
+}
+
+/* Back arrow button */
+.jhahBackBtn.sapMBtn {
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.jhahBackBtn .sapMBtnIcon {
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .jhahDashboardColMain,
+  .jhahDashboardColSide {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+
+  .jhahTwoColRow {
+    flex-wrap: wrap;
+  }
+
+  .jhahTwoColRow > .sapFCard {
+    flex: 1 1 100%;
+  }
+
+  .jhahHalfCard {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+}
