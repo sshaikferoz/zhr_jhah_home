@@ -71,6 +71,9 @@ sap.ui.define(
       },
 
       _loadAppInFrame: function (sSemanticObject, sAction) {
+        var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
+        oDashboardModel.setProperty("/isEmbedFrame", true);
+
         var oContainer = this.byId("dashboardContent");
         oContainer.destroyItems();
 
@@ -93,6 +96,9 @@ sap.ui.define(
       },
 
       _loadShellFragment: function (sFragmentName) {
+        var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
+        oDashboardModel.setProperty("/isEmbedFrame", false);
+
         var oContainer = this.byId("dashboardContent");
         oContainer.destroyItems();
 

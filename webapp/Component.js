@@ -72,6 +72,7 @@ sap.ui.define([
                 role: sRole,
                 pageTitle: oPersona.pageTitle,
                 selectedNavKey: "dashboard",
+                isEmbedFrame: false,
                 user: {
                     name: "Sultan Saleh",
                     role: oPersona.roleLabel,

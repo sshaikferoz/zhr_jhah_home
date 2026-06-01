@@ -2,7 +2,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
 >
-    <Toolbar class="jhahToolHeader" height="3.25rem">
+    <Toolbar class="jhahToolHeader" height="3.25rem" visible="{= !${dashboard>/isEmbedFrame} }">
         <core:Icon src="sap-icon://grid" class="jhahHeaderIcon sapUiSmallMarginBegin" />
         <Title
             text="{dashboard>/pageTitle}"
