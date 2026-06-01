@@ -15,7 +15,7 @@ sap.ui.define(
 
     return Controller.extend("com.jhah.zhrjhahhome.controller.Main", {
       onInit: function () {
-        var sRole = this.getView().getModel("dashboard").getProperty("/role");
+        var sRole = this.getOwnerComponent().getModel("dashboard").getProperty("/role");
         this._loadDashboardForRole(sRole);
       },
 
