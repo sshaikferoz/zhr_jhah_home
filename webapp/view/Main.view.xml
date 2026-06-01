@@ -17,17 +17,18 @@
                 type="XML"
             />
             <ScrollContainer
+                id="mainScroll"
                 width="100%"
                 vertical="true"
                 horizontal="false"
-                class="{= 'jhahMainScroll' + (${dashboard>/isEmbedFrame} ? ' jhahMainScrollEmbed' : '') }"
+                class="jhahMainScroll"
             >
                 <layoutData>
                     <FlexItemData growFactor="1" baseSize="0%" />
                 </layoutData>
                 <VBox
                     id="dashboardContent"
-                    class="{= 'jhahDashboardContent' + (${dashboard>/isEmbedFrame} ? ' jhahDashboardContentEmbed' : '') }"
+                    class="jhahDashboardContent"
                     renderType="Bare"
                     width="100%"
                 />
