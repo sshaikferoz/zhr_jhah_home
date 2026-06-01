@@ -17,6 +17,7 @@ sap.ui.define(
       onInit: function () {
         var sRole = this.getOwnerComponent().getModel("dashboard").getProperty("/role");
         this._loadDashboardForRole(sRole);
+        this._fetchLandingKpis();
       },
 
       _loadDashboardForRole: function (sRole) {
@@ -39,6 +40,39 @@ sap.ui.define(
             this._configureVisitorChart();
           }.bind(this)
         );
+      },
+
+      _fetchLandingKpis: function () {
+        var oODataModel = this.getOwnerComponent().getModel();
+        var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
+        if (!oODataModel) {
+          return;
+        }
+        var oBinding = oODataModel.bindList("/LandingPageKPI(false)/Set");
+        oBinding.requestContexts().then(function (aContexts) {
+          if (!aContexts.length) {
+            return;
+          }
+          var oData = aContexts[0].getObject();
+
+          oDashboardModel.setProperty("/vendorKpis/0/value", String(oData.TotalRequests));
+          oDashboardModel.setProperty("/vendorKpis/1/value", String(oData.ApprovedRequests));
+          oDashboardModel.setProperty("/vendorKpis/2/title", "In Progress");
+          oDashboardModel.setProperty("/vendorKpis/2/value", String(oData.InProgressRequests));
+
+          var iTotalVisitors = (oData.totalBusinessReqs || 0) + (oData.totalTempStaffReqs || 0) +
+            (oData.totalTempJobReqs || 0) + (oData.totalProjectReqs || 0) + (oData.totalSecurityRequests || 0);
+          oDashboardModel.setProperty("/visitorChart/centerLabel", iTotalVisitors + " TODAY");
+          oDashboardModel.setProperty("/visitorChart/data", [
+            { Category: "Business", Count: oData.totalBusinessReqs || 0 },
+            { Category: "Temporary Staff Access", Count: oData.totalTempStaffReqs || 0 },
+            { Category: "Temporary Job", Count: oData.totalTempJobReqs || 0 },
+            { Category: "Project", Count: oData.totalProjectReqs || 0 },
+            { Category: "Security", Count: oData.totalSecurityRequests || 0 }
+          ]);
+        }).catch(function () {
+          // backend unreachable — static mock data remains in place
+        });
       },
 
       _configureVisitorChart: function () {
