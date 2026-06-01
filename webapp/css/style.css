@@ -598,7 +598,8 @@ html.jhahHtml body,
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #ffffff;
+  background-color: transparent;
+  text-shadow: none;
 }
 
 .jhahBadgeStatus .sapMObjStatusIcon {
@@ -606,23 +607,19 @@ html.jhahHtml body,
 }
 
 .jhahBadgeStatus.sapMObjStatusSuccess .sapMObjStatusText {
-  background-color: #31a56e;
-  text-shadow: none;
+  color: #31a56e;
 }
 
 .jhahBadgeStatus.sapMObjStatusWarning .sapMObjStatusText {
-  background-color: #d28c22;
-  text-shadow: none;
+  color: #d28c22;
 }
 
 .jhahBadgeStatus.sapMObjStatusError .sapMObjStatusText {
-  background-color: #c74b4b;
-  text-shadow: none;
+  color: #c74b4b;
 }
 
 .jhahBadgeStatus.sapMObjStatusInformation .sapMObjStatusText {
-  background-color: #1d7db5;
-  text-shadow: none;
+  color: #1d7db5;
 }
 
 /* ── Teal progress bars (violations by category) ─────────── */
