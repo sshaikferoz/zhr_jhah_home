@@ -70,20 +70,6 @@ sap.ui.define(
         }
       },
 
-      onNavItemPress: function (oEvent) {
-        var oItem = oEvent.getSource();
-        var sKey = oItem.getBindingContext("dashboard").getProperty("key");
-        var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
-        oDashboardModel.setProperty("/selectedNavKey", sKey);
-
-        if (sKey === "vendor") {
-          this._loadAppInFrame("BusiVisitorAccess", "manage");
-        } else if (sKey === "dashboard") {
-          var sRole = oDashboardModel.getProperty("/role");
-          this._loadDashboardForRole(sRole);
-        }
-      },
-
       _loadAppInFrame: function (sSemanticObject, sAction) {
         var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
         oDashboardModel.setProperty("/isEmbedFrame", true);
