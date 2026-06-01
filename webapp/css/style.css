@@ -540,13 +540,7 @@ html.jhahHtml body,
 
 /* ── Chart ───────────────────────────────────────────────── */
 .jhahChartWrap {
-  position: relative;
   min-height: 280px;
-}
-
-.jhahChartCenterLabel {
-  position: absolute;
-  pointer-events: none;
 }
 
 /* ── Tables ──────────────────────────────────────────────── */

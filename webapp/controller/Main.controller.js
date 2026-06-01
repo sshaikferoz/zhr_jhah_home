@@ -112,10 +112,18 @@ sap.ui.define(
           return;
         }
         oChart.setVizProperties({
-          legend: { visible: true, position: "bottom" },
           title: { visible: false },
+          legend: {
+            visible: true,
+            position: "right",
+            label: { truncatedLineSize: 20 }
+          },
           plotArea: {
-            dataLabel: { visible: true },
+            dataLabel: {
+              visible: true,
+              type: "percentage",
+              formatString: "0.0%"
+            },
             colorPalette: ["#1d7db5", "#31a56e", "#d28c22", "#6d8fd7", "#9b59b6"]
           }
         });
