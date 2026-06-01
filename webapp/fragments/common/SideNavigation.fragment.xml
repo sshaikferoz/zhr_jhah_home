@@ -22,7 +22,12 @@
                    
                 </HBox>
             </VBox>
-            <tnt:SideNavigation expanded="true" class="jhahSideNav" selectedKey="dashboard">
+            <tnt:SideNavigation
+                expanded="true"
+                class="jhahSideNav"
+                selectedKey="{dashboard>/selectedNavKey}"
+                itemSelect=".onNavItemSelect"
+            >
                 <tnt:item>
                     <tnt:NavigationList items="{dashboard>/navItems}">
                         <tnt:NavigationListItem

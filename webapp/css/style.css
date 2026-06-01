@@ -650,6 +650,14 @@ html.jhahHtml body,
   font-size: 0.875rem;
 }
 
+/* ── Embedded App Frame ──────────────────────────────────── */
+.jhahDashboardContent > .sapUiHtmlContent,
+.jhahDashboardContent > .sapUiHtmlContent iframe {
+  width: 100% !important;
+  flex: 1 1 auto;
+  padding: 0 !important;
+}
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   .jhahDashboardColMain,

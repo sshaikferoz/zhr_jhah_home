@@ -71,6 +71,7 @@ sap.ui.define([
             var oDashboardModel = new JSONModel({
                 role: sRole,
                 pageTitle: oPersona.pageTitle,
+                selectedNavKey: "dashboard",
                 user: {
                     name: "Sultan Saleh",
                     role: oPersona.roleLabel,

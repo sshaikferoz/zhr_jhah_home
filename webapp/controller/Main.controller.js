@@ -1,9 +1,10 @@
 sap.ui.define(
   [
     "sap/ui/core/mvc/Controller",
-    "sap/ui/core/Fragment"
+    "sap/ui/core/Fragment",
+    "sap/ui/core/HTML"
   ],
-  function (Controller, Fragment) {
+  function (Controller, Fragment, HTML) {
     "use strict";
 
     var SHELL_FRAGMENTS = {
@@ -54,6 +55,41 @@ sap.ui.define(
       _loadDashboardForRole: function (sRole) {
         var sFragment = SHELL_FRAGMENTS[sRole] || SHELL_FRAGMENTS.COORDINATOR;
         this._loadShellFragment(sFragment);
+      },
+
+      onNavItemSelect: function (oEvent) {
+        var sKey = oEvent.getParameter("item").getKey();
+        var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
+        oDashboardModel.setProperty("/selectedNavKey", sKey);
+
+        if (sKey === "vendor") {
+          this._loadAppInFrame("BusiVisitorAccess", "manage");
+        } else if (sKey === "dashboard") {
+          var sRole = oDashboardModel.getProperty("/role");
+          this._loadDashboardForRole(sRole);
+        }
+      },
+
+      _loadAppInFrame: function (sSemanticObject, sAction) {
+        var oContainer = this.byId("dashboardContent");
+        oContainer.destroyItems();
+
+        var sUrl;
+        try {
+          sUrl = sap.ushell.Container.getService("CrossApplicationNavigation")
+            .hrefForExternal({ target: { semanticObject: sSemanticObject, action: sAction } });
+        } catch (e) {
+          // fallback for local development outside FLP
+          sUrl = window.location.origin + "/sap/bc/ui2/flp#" + sSemanticObject + "-" + sAction;
+        }
+
+        var oHtml = new HTML({
+          content: "<iframe src=\"" + sUrl + "\" style=\"width:100%;height:100%;min-height:calc(100vh - 3.5rem);border:none;display:block;\"></iframe>",
+          sanitizeContent: false,
+          preferDOM: true
+        });
+
+        oContainer.addItem(oHtml);
       },
 
       _loadShellFragment: function (sFragmentName) {
