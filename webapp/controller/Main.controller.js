@@ -79,12 +79,34 @@ sap.ui.define(
           sUrl = sap.ushell.Container.getService("CrossApplicationNavigation")
             .hrefForExternal({ target: { semanticObject: sSemanticObject, action: sAction } });
         } catch (e) {
-          // fallback for local development outside FLP
           sUrl = window.location.origin + "/sap/bc/ui2/flp#" + sSemanticObject + "-" + sAction;
         }
 
+        var sFrameId = "jhahEmbeddedFrame_" + sSemanticObject + "_" + sAction;
+        var sOnLoad = [
+          "try{",
+          "var d=this.contentDocument||this.contentWindow.document;",
+          "var s=d.createElement('style');",
+          "s.textContent=",
+          "'.sapUshellShellHead,.sapUshellShellHeader,.sapFioriShellHeader,",
+          ".sapUshellShellStaticHead,.sapUshellShellNavBar,",
+          "#shell-header,.sapUshellShellHeadItm{display:none!important;}",
+          ".sapUshellShellPage,.sapUshellShell,.sapUshellCanvas,",
+          "#canvas,#sapUshellPage{top:0!important;padding-top:0!important;margin-top:0!important;}",
+          "body{margin:0!important;}';",
+          "d.head.appendChild(s);",
+          "}catch(e){}"
+        ].join("");
+
         var oHtml = new HTML({
-          content: "<iframe src=\"" + sUrl + "\" style=\"width:100%;height:100%;min-height:calc(100vh - 3.5rem);border:none;display:block;\"></iframe>",
+          content: [
+            "<iframe",
+            " id=\"" + sFrameId + "\"",
+            " src=\"" + sUrl + "\"",
+            " onload=\"" + sOnLoad + "\"",
+            " style=\"width:100%;height:calc(100vh - 3.5rem);border:none;display:block;\"",
+            "></iframe>"
+          ].join(""),
           sanitizeContent: false,
           preferDOM: true
         });
