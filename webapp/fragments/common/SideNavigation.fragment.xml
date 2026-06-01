@@ -1,7 +1,6 @@
 <core:FragmentDefinition
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
-    xmlns:tnt="sap.tnt"
 >
     <VBox class="jhahSideNavWrap" renderType="Bare" height="100%" justifyContent="SpaceBetween">
         <VBox renderType="Bare">
@@ -22,22 +21,32 @@
                    
                 </HBox>
             </VBox>
-            <tnt:SideNavigation
-                expanded="true"
-                class="jhahSideNav"
-                selectedKey="{dashboard>/selectedNavKey}"
-                itemSelect=".onNavItemSelect"
+            <List
+                items="{dashboard>/navItems}"
+                mode="None"
+                showSeparators="None"
+                backgroundDesign="Transparent"
+                class="jhahCustomNavList"
             >
-                <tnt:item>
-                    <tnt:NavigationList items="{dashboard>/navItems}">
-                        <tnt:NavigationListItem
-                            key="{dashboard>key}"
-                            text="{dashboard>title}"
-                            icon="{dashboard>icon}"
+                <CustomListItem
+                    press=".onNavItemPress"
+                    class="jhahCustomNavItem"
+                >
+                    <HBox
+                        alignItems="Center"
+                        class="{= ${dashboard>key} === ${dashboard>/selectedNavKey} ? 'jhahNavRow jhahNavRowSelected' : 'jhahNavRow' }"
+                    >
+                        <core:Icon
+                            src="{dashboard>icon}"
+                            class="{= ${dashboard>key} === ${dashboard>/selectedNavKey} ? 'jhahNavIcon jhahNavIconSelected' : 'jhahNavIcon' }"
                         />
-                    </tnt:NavigationList>
-                </tnt:item>
-            </tnt:SideNavigation>
+                        <Text
+                            text="{dashboard>title}"
+                            class="{= ${dashboard>key} === ${dashboard>/selectedNavKey} ? 'jhahNavText jhahNavTextSelected' : 'jhahNavText' }"
+                        />
+                    </HBox>
+                </CustomListItem>
+            </List>
         </VBox>
         <VBox class="jhahSideNavFooter" renderType="Bare">
             <VBox class="jhahSidebarPatternBanner" renderType="Bare">

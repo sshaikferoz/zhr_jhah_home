@@ -90,103 +90,85 @@ html.jhahHtml body,
   object-fit: contain;
 }
 
-.jhahSideNav.sapTntSideNavigation,
-.jhahSideNavWrap .sapTntSideNavigation {
-  background: transparent;
-  border-right: none !important;
-  box-shadow: none !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  max-width: 20rem;
-  margin: 0 auto;
-  align-self: center;
+/* ── Custom Nav List ─────────────────────────────────────── */
+.jhahCustomNavList.sapMList,
+.jhahCustomNavList .sapMListUl {
+  background: transparent !important;
+  border: none !important;
+  padding: 0.5rem 0.75rem !important;
 }
 
-.jhahSideNav .sapTntNavLI,
-.jhahSideNav .sapTntNavigationList,
-.jhahSideNav .sapTntNL {
+.jhahCustomNavItem.sapMLIB {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin-bottom: 0.25rem;
+}
+
+.jhahCustomNavItem.sapMLIB:last-child {
+  margin-bottom: 0;
+}
+
+.jhahCustomNavItem.sapMLIB::before,
+.jhahCustomNavItem.sapMLIB::after,
+.jhahCustomNavItem.sapMLIB .sapMLIBContent {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.jhahNavRow {
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.65rem;
+  cursor: pointer;
+  gap: 0.85rem;
+  transition: background 0.15s ease;
   width: 100%;
-  background: transparent !important;
+  box-sizing: border-box;
 }
 
-/* ── Nav item base (Horizon 1.120) ───────────────────────── */
-.jhahSideNav .sapTntNLI {
-  background: transparent !important;
-  border-radius: 0.65rem !important;
-  margin: 0.2rem 0.75rem !important;
-  border: none !important;
-  box-shadow: none !important;
-  list-style: none !important;
+.jhahNavRow:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Horizon uses ::before for the item background fill */
-.jhahSideNav .sapTntNLI::before,
-.jhahSideNav .sapTntNLI::after {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
+.jhahNavRowSelected {
+  background: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Inner anchor/button element Horizon renders */
-.jhahSideNav .sapTntNLI > a,
-.jhahSideNav .sapTntNLI > button,
-.jhahSideNav .sapTntNLI .sapTntNLIItem {
-  background: transparent !important;
-  border-radius: 0.65rem !important;
-  border: none !important;
-  box-shadow: none !important;
+.jhahNavRowSelected:hover {
+  background: #ffffff !important;
 }
 
-/* Text and icon — always white when not selected */
-.jhahSideNav .sapTntNLI .sapTntNLIText,
-.jhahSideNav .sapTntNLI .sapMText,
-.jhahSideNav .sapTntNLI .sapTntNLIIcon .sapUiIcon,
-.jhahSideNav .sapTntNLI .sapUiIcon,
-.jhahSideNav .sapTntNLI span {
+/* Icon — non-selected: grey circle */
+.jhahNavIcon.sapUiIcon {
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  text-align: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
   color: #ffffff !important;
-  font-weight: 500 !important;
+  font-size: 1rem;
+  flex-shrink: 0;
 }
 
-/* Hover */
-.jhahSideNav .sapTntNLI:hover::before,
-.jhahSideNav .sapTntNLI > a:hover,
-.jhahSideNav .sapTntNLI > button:hover,
-.jhahSideNav .sapTntNLI:hover .sapTntNLIItem {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-radius: 0.65rem !important;
-}
-
-/* ── Selected item — white pill ──────────────────────────── */
-.jhahSideNav .sapTntNLI.sapTntNLISelected,
-.jhahSideNav .sapTntNLI.sapTntNLISelected::before {
-  background: #ffffff !important;
-  border-radius: 0.65rem !important;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-}
-
-.jhahSideNav .sapTntNLI.sapTntNLISelected > a,
-.jhahSideNav .sapTntNLI.sapTntNLISelected > button,
-.jhahSideNav .sapTntNLI.sapTntNLISelected .sapTntNLIItem {
-  background: #ffffff !important;
-  border-radius: 0.65rem !important;
-}
-
-.jhahSideNav .sapTntNLI.sapTntNLISelected .sapTntNLIText,
-.jhahSideNav .sapTntNLI.sapTntNLISelected .sapMText,
-.jhahSideNav .sapTntNLI.sapTntNLISelected span,
-.jhahSideNav .sapTntNLI.sapTntNLISelected .sapUiIcon {
+/* Icon — selected: no circle, dark colour */
+.jhahNavIconSelected.sapUiIcon {
+  background: transparent !important;
   color: #153a54 !important;
-  font-weight: 700 !important;
+  font-size: 1.1rem;
 }
 
-/* Remove Horizon's left-border selection indicator */
-.jhahSideNav .sapTntNLI.sapTntNLISelected::after,
-.jhahSideNav .sapTntNLI.sapTntNLISelected:focus::after,
-.jhahSideNav .sapTntNLI.sapTntNLISelected:focus-visible::before {
-  display: none !important;
-  border: none !important;
-  background: #ffffff !important;
-  border-radius: 0.65rem !important;
+.jhahNavText.sapMText {
+  color: #ffffff !important;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.jhahNavTextSelected.sapMText {
+  color: #153a54 !important;
+  font-weight: 700;
 }
 
 /* Sidebar footer cards */
