@@ -651,23 +651,11 @@ html.jhahHtml body,
 }
 
 /* ── Embedded App Frame ──────────────────────────────────── */
-.jhahMainScroll:has(iframe) {
-  padding: 0 !important;
-}
-
-.jhahDashboardContent:has(iframe) {
-  padding: 0 !important;
-}
-
-.jhahDashboardContent > .sapUiHtmlContent {
+.jhahDashboardContent > .sapUiHtmlContent,
+.jhahDashboardContent > .sapUiHtmlContent iframe {
   width: 100% !important;
   flex: 1 1 auto;
-}
-
-.jhahDashboardContent > .sapUiHtmlContent iframe {
-  display: block;
-  width: 100% !important;
-  border: none;
+  padding: 0 !important;
 }
 
 /* ── Responsive ──────────────────────────────────────────── */
