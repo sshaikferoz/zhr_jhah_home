@@ -17,7 +17,6 @@ sap.ui.define(
     return Controller.extend("com.jhah.zhrjhahhome.controller.Main", {
       onInit: function () {
         this._fetchEmployeeHeaderAndLoad();
-        this._fetchLandingKpis();
       },
 
       _fetchEmployeeHeaderAndLoad: function () {
@@ -32,9 +31,11 @@ sap.ui.define(
         var oBinding = oODataModel.bindList("/EmployeeHeader");
         oBinding.requestContexts().then(function (aContexts) {
           var sRole = "COORDINATOR";
+          var bAdmin = false;
           if (aContexts.length) {
             var oUser = aContexts[0].getObject();
-            sRole = oUser.Admin === "X" ? "SECURITY" : "COORDINATOR";
+            bAdmin = oUser.Admin === "X";
+            sRole = bAdmin ? "SECURITY" : "COORDINATOR";
 
             var oPersona = this.getOwnerComponent()._getPersonaConfig(sRole);
             oDashboardModel.setProperty("/role", sRole);
@@ -47,8 +48,10 @@ sap.ui.define(
             oDashboardModel.setProperty("/user/id", oUser.Pernr || oDashboardModel.getProperty("/user/id"));
           }
           this._loadDashboardForRole(sRole);
+          this._fetchLandingKpis(bAdmin);
         }.bind(this)).catch(function () {
           this._loadDashboardForRole("COORDINATOR");
+          this._fetchLandingKpis(false);
         }.bind(this));
       },
 
@@ -128,13 +131,14 @@ sap.ui.define(
         }
       },
 
-      _fetchLandingKpis: function () {
+      _fetchLandingKpis: function (bAdmin) {
         var oODataModel = this.getOwnerComponent().getModel();
         var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
         if (!oODataModel) {
           return;
         }
-        var oBinding = oODataModel.bindList("/LandingPageKPI(false)/Set");
+        var sPath = "/LandingPageKPI(" + (bAdmin ? "true" : "false") + ")/Set";
+        var oBinding = oODataModel.bindList(sPath);
         oBinding.requestContexts().then(function (aContexts) {
           if (!aContexts.length) {
             return;
