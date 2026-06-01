@@ -49,7 +49,7 @@
             <!-- Violations Points -->
             <f:Card class="jhahDataCard jhahStackedCard jhahViolationsPointsCard">
                 <f:content>
-                    <VBox class="jhahPairCardInner" renderType="Bare">
+                    <VBox class="jhahPairCardInner" renderType="Bare" width="100%">
                         <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginBottom">
                             <Title text="Current Violations Points" level="H6" />
                             <ObjectStatus text="2 Active" state="Error" />

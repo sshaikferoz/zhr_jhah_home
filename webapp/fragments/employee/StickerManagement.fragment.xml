@@ -13,7 +13,7 @@
                 </layoutData>
                 <f:Card class="jhahDataCard" width="100%">
                     <f:content>
-                        <VBox class="jhahPairCardInner" renderType="Bare" justifyContent="Start">
+                        <VBox class="jhahPairCardInner" renderType="Bare" justifyContent="Start" width="100%">
                             <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMarginBottom">
                                 <Label text="ACTIVE STICKER" class="jhahMutedText" />
                                 <ObjectStatus text="{dashboard>/sticker/status}" state="Success" icon="sap-icon://status-positive" />
@@ -29,13 +29,13 @@
                 </f:Card>
             </VBox>
             <!-- Request Status card -->
-            <VBox class="jhahHalfCardWrap" renderType="Bare">
+            <VBox class="jhahHalfCardWrap" renderType="Bare" width="100%">
                 <layoutData>
                     <FlexItemData growFactor="1" baseSize="0%" />
                 </layoutData>
                 <f:Card class="jhahDataCard" width="100%">
                     <f:content>
-                        <VBox class="jhahPairCardInner" renderType="Bare" justifyContent="Start">
+                        <VBox class="jhahPairCardInner" renderType="Bare" justifyContent="Start" width="100%">
                             <Title text="Request Status" level="H6" class="sapUiSmallMarginBottom" />
                             <Table
                                 items="{dashboard>/sticker/requests}"
