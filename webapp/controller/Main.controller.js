@@ -116,14 +116,10 @@ sap.ui.define(
           legend: {
             visible: true,
             position: "right",
-            label: { truncatedLineSize: 20 }
+            layout: { maxWidth: 0.35 }
           },
           plotArea: {
-            dataLabel: {
-              visible: true,
-              type: "percentage",
-              formatString: "0.0%"
-            },
+            dataLabel: { visible: false },
             colorPalette: ["#1d7db5", "#31a56e", "#d28c22", "#6d8fd7", "#9b59b6"]
           }
         });

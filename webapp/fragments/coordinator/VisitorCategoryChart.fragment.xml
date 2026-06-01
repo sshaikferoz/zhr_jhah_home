@@ -10,13 +10,13 @@
         <Title text="Visitor Type by Category" level="H5" class="jhahSectionTitle" />
         <f:Card class="jhahDataCard">
             <f:content>
-                <VBox alignItems="Center" width="100%">
+                <VBox alignItems="Center" width="100%" class="jhahChartWrap">
                     <viz:VizFrame
                         id="visitorCategoryChart"
                         uiConfig="{applicationSet:'fiori'}"
                         vizType="donut"
-                        width="100%"
-                        height="320px"
+                        width="500px"
+                        height="300px"
                     >
                         <viz:dataset>
                             <viz.data:FlattenedDataset data="{dashboard>/visitorChart/data}">
