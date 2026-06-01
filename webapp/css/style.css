@@ -130,11 +130,24 @@ html.jhahHtml body,
 /* Inner anchor/button element Horizon renders */
 .jhahSideNav .sapTntNLI > a,
 .jhahSideNav .sapTntNLI > button,
-.jhahSideNav .sapTntNLI .sapTntNLIItem {
+.jhahSideNav .sapTntNLI .sapTntNLIItem,
+.jhahSideNav .sapTntNLI .sapTntNLIItem:hover,
+.jhahSideNav .sapTntNLI .sapTntNLIItem:focus {
   background: transparent !important;
   border-radius: 0.65rem !important;
   border: none !important;
   box-shadow: none !important;
+}
+
+/* Explicitly keep non-selected items transparent regardless of SAP theme */
+.jhahSideNav .sapTntNLI:not(.sapTntNLISelected),
+.jhahSideNav .sapTntNLI:not(.sapTntNLISelected)::before,
+.jhahSideNav .sapTntNLI:not(.sapTntNLISelected) > a,
+.jhahSideNav .sapTntNLI:not(.sapTntNLISelected) > button,
+.jhahSideNav .sapTntNLI:not(.sapTntNLISelected) .sapTntNLIItem {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
 }
 
 /* Text and icon — always white when not selected */
