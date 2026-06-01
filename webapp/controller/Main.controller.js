@@ -174,7 +174,7 @@ sap.ui.define(
             layout: { maxWidth: 0.35 }
           },
           plotArea: {
-            dataLabel: { visible: false },
+            dataLabel: { visible: true },
             colorPalette: ["#1d7db5", "#31a56e", "#d28c22", "#6d8fd7", "#9b59b6"]
           }
         });
