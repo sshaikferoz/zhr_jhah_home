@@ -20,14 +20,14 @@
                 width="100%"
                 vertical="true"
                 horizontal="false"
-                class="jhahMainScroll"
+                class="{= 'jhahMainScroll' + (${dashboard>/isEmbedFrame} ? ' jhahMainScrollEmbed' : '') }"
             >
                 <layoutData>
                     <FlexItemData growFactor="1" baseSize="0%" />
                 </layoutData>
                 <VBox
                     id="dashboardContent"
-                    class="jhahDashboardContent"
+                    class="{= 'jhahDashboardContent' + (${dashboard>/isEmbedFrame} ? ' jhahDashboardContentEmbed' : '') }"
                     renderType="Bare"
                     width="100%"
                 />

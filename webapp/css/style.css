@@ -658,6 +658,22 @@ html.jhahHtml body,
   padding: 0 !important;
 }
 
+.jhahDashboardContentEmbed {
+  padding: 0 !important;
+  gap: 0 !important;
+}
+
+.jhahMainScrollEmbed,
+.jhahMainScrollEmbed.sapMScrollCont {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.jhahMainScrollEmbed > .sapMScrollContScroll {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 960px) {
   .jhahDashboardColMain,
