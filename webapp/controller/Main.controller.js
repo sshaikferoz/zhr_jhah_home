@@ -15,13 +15,44 @@ sap.ui.define(
 
     return Controller.extend("com.jhah.zhrjhahhome.controller.Main", {
       onInit: function () {
-        var sRole = this.getOwnerComponent().getModel("dashboard").getProperty("/role");
-        this._loadDashboardForRole(sRole);
+        this._fetchEmployeeHeaderAndLoad();
         this._fetchLandingKpis();
       },
 
+      _fetchEmployeeHeaderAndLoad: function () {
+        var oODataModel = this.getOwnerComponent().getModel();
+        var oDashboardModel = this.getOwnerComponent().getModel("dashboard");
+
+        if (!oODataModel) {
+          this._loadDashboardForRole("COORDINATOR");
+          return;
+        }
+
+        var oBinding = oODataModel.bindList("/EmployeeHeader");
+        oBinding.requestContexts().then(function (aContexts) {
+          var sRole = "COORDINATOR";
+          if (aContexts.length) {
+            var oUser = aContexts[0].getObject();
+            sRole = oUser.Admin === "X" ? "SECURITY" : "COORDINATOR";
+
+            var oPersona = this.getOwnerComponent()._getPersonaConfig(sRole);
+            oDashboardModel.setProperty("/role", sRole);
+            oDashboardModel.setProperty("/pageTitle", oPersona.pageTitle);
+            oDashboardModel.setProperty("/navItems", oPersona.navItems);
+            oDashboardModel.setProperty("/showVendorSection", true);
+            oDashboardModel.setProperty("/user/name", oUser.UserName || oDashboardModel.getProperty("/user/name"));
+            oDashboardModel.setProperty("/user/role", oPersona.roleLabel);
+            oDashboardModel.setProperty("/user/department", oUser.OrganizationText || oDashboardModel.getProperty("/user/department"));
+            oDashboardModel.setProperty("/user/id", oUser.Pernr || oDashboardModel.getProperty("/user/id"));
+          }
+          this._loadDashboardForRole(sRole);
+        }.bind(this)).catch(function () {
+          this._loadDashboardForRole("COORDINATOR");
+        }.bind(this));
+      },
+
       _loadDashboardForRole: function (sRole) {
-        var sFragment = SHELL_FRAGMENTS[sRole] || SHELL_FRAGMENTS.EMPLOYEE;
+        var sFragment = SHELL_FRAGMENTS[sRole] || SHELL_FRAGMENTS.COORDINATOR;
         this._loadShellFragment(sFragment);
       },
 

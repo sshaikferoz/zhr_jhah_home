@@ -199,13 +199,12 @@ sap.ui.define([
             this.getRouter().initialize();
         },
 
+        _getPersonaConfig: function (sRole) {
+            return PERSONA_CONFIG[sRole] || PERSONA_CONFIG.COORDINATOR;
+        },
+
         _getInitialRole: function () {
-            var mParams = new URLSearchParams(window.location.search);
-            var sRole = (mParams.get("role") || "EMPLOYEE").toUpperCase();
-            if (!PERSONA_CONFIG[sRole]) {
-                return "EMPLOYEE";
-            }
-            return sRole;
+            return "COORDINATOR";
         }
     });
 });
